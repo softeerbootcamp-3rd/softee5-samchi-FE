@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {useState} from 'react';
+import './defaultStyle.css'
+import { CheckBox } from './Checkbox';
+import { TestRadioButton } from './pages/TestRadioButton';
+import { TestBottomSheet } from './pages/TestBottomSheet';
+import Page from './Page';
 
 function App() {
+
+  const [pageEnd, setPageEnd] = useState<boolean>(false);
+
+  console.log(pageEnd);
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <div className='App-fullpage'>
+        <li style={{marginTop:"10vh"}}>
+          {!pageEnd ? 
+          <Page setEnd={setPageEnd}>
+            <TestBottomSheet/>
+            <TestRadioButton></TestRadioButton>
+          </Page>
+          :
+          <></>
+        }
+        </li>
+      </div>
     </div>
   );
 }
