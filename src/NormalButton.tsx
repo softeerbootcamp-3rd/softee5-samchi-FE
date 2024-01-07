@@ -5,7 +5,10 @@ type Props = {
     onClicked:()=>void,
     imageSource?:string,
     text:string,
-    children?: React.ReactNode
+    disabled?:boolean,
+    style?:React.CSSProperties,
+    className?:string,
+    children?: React.ReactNode,
   }
   
 export const NormalButton = (props:Props) => {
@@ -20,7 +23,9 @@ export const NormalButton = (props:Props) => {
   return(
       <button
         className={stringCN + `bg-black text-white`}
-        onClick={clicked} > 
+        onClick={clicked}
+        style={props.style} 
+        disabled={props.disabled??false}> 
         {props.imageSource ? <img src={props.imageSource} alt='ButtonImage'/> : <></>}
         <p>{props.text}</p>
       </button>

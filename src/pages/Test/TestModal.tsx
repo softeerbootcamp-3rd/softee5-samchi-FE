@@ -1,7 +1,7 @@
 import React, {useState} from "react";
-import Button from "../fixtures/Button";
+import Button from "../../fixtures/Button";
 import { useTransition } from 'react-spring';
-import { Modal } from "../Modal";
+import { Modal } from "../../Modal";
 
 export const TestModal = () => {
     const [openModal, setOpenModal] = useState(false);
