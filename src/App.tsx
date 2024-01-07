@@ -1,32 +1,34 @@
 import './App.css';
 import {useState} from 'react';
 import './defaultStyle.css'
-import { CheckBox } from './Checkbox';
-import { TestRadioButton } from './pages/TestRadioButton';
-import { TestBottomSheet } from './pages/TestBottomSheet';
+import { TopicPicker } from './pages/TopicPicker';
+import { TestBottomSheet } from './pages/Test/TestBottomSheet';
 import Page from './Page';
+import { MapPinPicker } from './MapPinPicker';
 
 function App() {
 
   const [pageEnd, setPageEnd] = useState<boolean>(false);
 
   console.log(pageEnd);
+  /*
+  return (
+    <MapPinPicker></MapPinPicker>
+  )
+  */
 
   return (
-    <div className="App">
+    <div className="App" style={{width:'100vw', height:'100vh'}}>
       <header className="App-header">
       </header>
-      <div className='App-fullpage'>
-        <li style={{marginTop:"10vh"}}>
-          {!pageEnd ? 
+      <div className='App-fullpage' >
+        <div>
           <Page setEnd={setPageEnd}>
-            <TestBottomSheet/>
-            <TestRadioButton></TestRadioButton>
+            <TopicPicker></TopicPicker>
+            <TestBottomSheet></TestBottomSheet>
+            <MapPinPicker></MapPinPicker>
           </Page>
-          :
-          <></>
-        }
-        </li>
+        </div>
       </div>
     </div>
   );
