@@ -1,20 +1,19 @@
 .page-full {
-    height:100vh;
-    width:100vw;
+    height:100%;
+    width:100%;
+    display: block;
 }
 
 .page-header-screen {
     position:fixed;
-    height:20vh;
-    left:0px;
-    top:0px;
+    height:10vh;
+    top:10vh;
     width:100%;
     background-color: #FFFFFF;
 }
 
 .page-header-absolute {
     position:absolute;
-    left:0px;
     top:0px;
     width:100%;
     height:20vh;
@@ -31,19 +30,18 @@
 }
 
 .page-underheader{
-    padding-top:10vh;
-    padding-bottom:20vw;
+    position:relative;
+    top:10vh;
+    padding-top:0vh;
+    padding-bottom:80vh;
+    overflow: auto;
 }
 
-.page-body {
-    bottom:20vw;
-    top:10vh;
-}
+
 
 .page-footer-screen {
     position:fixed;
     height:10vh;
-    left:0px;
     bottom:0px;
     width:100%;
     background-color: #FFFFFF;
@@ -51,7 +49,6 @@
 
 .page-footer-absolute {
     position:absolute;
-    left:0px;
     bottom:0px;
     width:100%;
     height:10vh;
@@ -83,7 +80,7 @@
         opacity: 0;
     }
     to{
-        right:50vw;
+        right:50%;
         opacity: 100;
     }
 }
@@ -101,7 +98,7 @@
 @keyframes move{
     
     from{
-        left: 50vw;
+        left: 50%;
         opacity: 0;
     }
     to{

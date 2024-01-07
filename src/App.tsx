@@ -23,7 +23,7 @@ function App() {
       </header>
       <div className='App-fullpage' >
         <div>
-          <Page setEnd={setPageEnd}>
+          <Page end={pageEnd} setEnd={setPageEnd}>
             <TopicPicker></TopicPicker>
             <TestBottomSheet></TestBottomSheet>
             <MapPinPicker></MapPinPicker>

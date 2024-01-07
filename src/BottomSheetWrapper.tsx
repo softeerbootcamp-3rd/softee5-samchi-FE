@@ -16,6 +16,7 @@ export interface BottomSheetWrapperProps{
     setOpen:React.Dispatch<React.SetStateAction<boolean>>,
     header?:JSX.Element,
     footer?:JSX.Element,
+    style?:React.CSSProperties,
     children:React.ReactNode,
 }
 
@@ -28,13 +29,16 @@ export const BottomSheetWrapper = (
         <BottomSheet open={props.open}
             onDismiss={onDismiss}
             snapPoints={({minHeight}) => minHeight}
-            footer={props.footer??<Button onClick={onDismiss} className="w-full">Dismiss</Button>}>
+            style={props.style}
+            >
                 <SheetContent>
                     {props.children}
-                    <Button onClick={onDismiss} className="w-full">
-                        Dismiss
-                    </Button>
                 </SheetContent>
         </BottomSheet>
     );
 };
+/*
+<Button onClick={onDismiss} className="w-full">
+    Dismiss
+</Button>
+*/
