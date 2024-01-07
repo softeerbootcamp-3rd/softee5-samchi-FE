@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 import { NormalButton } from "./NormalButton";
 import pageStyle from './page.css'
-import { SlArrowLeft } from "react-icons/sl";
 
 interface PageProps {
     end:boolean,
@@ -38,7 +37,7 @@ export const SheetPage = (props:PageProps) => {
                 </section>
                 <footer className='page-footer page-footer-screen'>
                     {props.footerElement}
-                    <NormalButton className='page-footer-btn page-footer-btn-next-single' onClicked={()=>setCurrentPage(currentPage + 1)} text={"다음"} style={{width:"84%"}} disabled={aniPlaying}></NormalButton>
+                    <NormalButton className='page-footer-btn page-footer-btn-next-single' onClick={()=>setCurrentPage(currentPage + 1)} text={"다음"} style={{width:"84%"}} disabled={aniPlaying}></NormalButton>
                 </footer>
             </div>
         </article>

@@ -9,10 +9,7 @@ export type TopicClass = {
     subclass:Array<Topic>,
 }
 
-export type GPS = {
-    lat:number;
-    lng:number;
-}
+export type GPS = google.maps.LatLngLiteral
 
 export type Topic = string;
 
