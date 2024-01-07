@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { RuleButton } from "../RuleButton";
+import { RuleButton } from "../../RuleButton";
 
 export const TestRadioButton = () => {
     const [selectedButton, setSelectedButton] = useState(-1);
