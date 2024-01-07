@@ -22,5 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
 # Private Key
+=======
+# api key
+>>>>>>> 228036c (동작만하는 관심사 선택지)
 .env
