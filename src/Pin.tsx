@@ -1,12 +1,12 @@
 import React from "react";
-export interface PinElementOptions {
-    type:string;
-    background?: string|null;
-    borderColor?: string|null;
-    glyph?: string|Element|URL|null;
-    glyphColor?: string|null;
-    scale?: number|null;
+import {PinDriverGoal, PinGuestDefault, PinGuestSelected} from './image/Svg'
+import { Props } from "./Types";
+interface PinProps extends Props{
+    type: string;
+    onClick: React.Dispatch<React.SetStateAction<Array<boolean>>>;
+    clicked: Array<boolean>;
+    index:number;
   }
-export const Pin = () => {
+export const Pin = (props : Props) => {
     
 }
