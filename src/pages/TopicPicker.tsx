@@ -13,7 +13,7 @@ export const TopicPicker = (props:TopicPickerProps) => {
 
     return (
         <div style={{width:'100%', height:'100%'}}>
-        <h1 style={{position:'absolute', width:'160px', height:'60px', left:'20px', top:'104px', fontWeight:'700', fontSize:'20px', lineHeight:'150%', letterSpacing:'-0.6px', textAlign:'left'}}>대화하고 싶은<br/>관심사를 선택하세요.</h1>
+        <h1 style={{position:'absolute', width:'160px', height:'60px', left:'20px', top:'104px', fontWeight:'400', fontSize:'20px', lineHeight:'150%', letterSpacing:'-0.6px', textAlign:'left'}}>대화하고 싶은<br/>관심사를 선택하세요.</h1>
         <p style={{position:'absolute', width:'257px', height:'21px', left:'20px', top:'168px', color: '#4F4F4F', fontSize: '14px', fontFamily: 'Pretendard', fontWeight: '400', fontStyle:'normal', lineHeight: '150%', letterSpacing:'-0.25px', wordWrap: 'break-word'}}>많이 선택할수록 다양한 사람들을 찾을 수 있어요</p>
         
         {props.selection[0] ? 
