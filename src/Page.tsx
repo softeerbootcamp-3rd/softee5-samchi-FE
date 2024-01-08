@@ -25,7 +25,7 @@ const Page = (props:PageProps) => {
 
     if(currentPage < props.children.length)
         return (
-    <div style={{width:"90hw"}}>
+    <div style={{}}>
         <article className='page-full' style={pageStyle}>
             <header className='page-header page-header-screen' style={pageStyle}>
                 {currentPage !== 0 ? 

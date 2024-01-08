@@ -28,15 +28,16 @@ export const CheckBox = (props:Props) => {
       <button
         className={stringCN + `bg-black text-white`}
         onClick={clicked} 
-        style={props.style}>
-        <p>{props.text}</p>
+        style={{position:'relative', width:'164px', height:'44px', paddingTop:'11px', paddingBottom:'12px', paddingLeft:'16px', paddingRight:'115px', borderRadius:'8px' }}>
+        <p style={{position:'relative',width:'33px', height:'21px', left:'16px', top:'11px'}}>{props.text}</p>
+        <img src={`${process.env.PUBLIC_URL}/image/ButtonCheck.png`} style={{position:'relative',right:'12px', top:'11px'}}/>
         </button>
       : 
       <button 
         className={stringCN + `bg-white text-gray-600`}
         onClick={clicked}
-        style={props.style}> 
-        <p>{props.text}</p>
+        style={{width:'164px', height:'44px' }}> 
+        <p style={{width:'33px', height:'21px', left:'16px', top:'11px'}}>{props.text}</p>
         </button> 
     }
     </>

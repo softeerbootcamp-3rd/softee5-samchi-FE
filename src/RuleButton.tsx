@@ -24,16 +24,20 @@ export const RuleButton = (props:Props) => {
     {props.selected === props.groupID ?
       <button
         className={stringCN + `bg-black text-white`}
-        onClick={clicked} > 
-        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage'/> : <></>}
-        <p>{props.text}</p>
+        onClick={clicked} style={{height:"209px", width:'164px'}}> 
+        <img src={`${process.env.PUBLIC_URL}/image/ButtonCheck.png`}/>
+        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage' style={{height:"96px", width:'96px'}}/> : <></>}
+        <br/>
+        <p style={{fontSize:"10pt"}}>{props.text}</p>
         </button>
       : 
       <button 
         className={stringCN + `bg-white text-gray-600`}
-        onClick={clicked}> 
-        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage'/> : <></>}
-        <p>{props.text}</p>
+        onClick={clicked} style={{height:"209px", width:'164px'}}> 
+        <img src={`${process.env.PUBLIC_URL}/image/ButtonCheck.png`}/>
+        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage' style={{height:"96px", width:'96px'}} /> : <></>}
+        <br/>
+        <p style={{fontSize:"10pt"}}>{props.text}</p>
         </button>
     }
     </>

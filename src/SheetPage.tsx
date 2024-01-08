@@ -20,24 +20,20 @@ export const SheetPage = (props:PageProps) => {
     if(props.children[currentPage] === undefined) props.setEnd(true);
     useEffect(()=>{
         props.end && currentPage !== 0 && setCurrentPage(0);
-    })
+    }, [currentPage])
 
     if(currentPage < props.children.length)
         return (
-        <article className='page-full' style={pageStyle}>
-            <header className='page-header page-header-screen'>
-                <div title='ProgressBar'/>
-                {props.headerElement}
-            </header>
-            <div className='page-underheader' style={pageStyle}>
-                <section className='page-body' style={pageStyle}>
-                    <div className='page-getin'>
+        <article className='sheetpage-full' style={pageStyle}>
+            <div className='sheetpage-underheader' style={pageStyle}>
+                <section className='sheetpage-body' style={pageStyle}>
+                    <div className='sheetpage-getin'>
                         {props.children[currentPage]}
                     </div>
                 </section>
-                <footer className='page-footer page-footer-screen'>
+                <footer className='sheetpage-footer sheetpage-footer-screen'>
                     {props.footerElement}
-                    <NormalButton className='page-footer-btn page-footer-btn-next-single' onClick={()=>setCurrentPage(currentPage + 1)} text={"다음"} style={{width:"84%"}} disabled={aniPlaying}></NormalButton>
+                    <NormalButton className='sheetpage-footer-btn sheetpage-footer-btn-next-single' onClick={()=>setCurrentPage(currentPage + 1)} text={"다음"} style={{width:"84%"}} disabled={aniPlaying}></NormalButton>
                 </footer>
             </div>
         </article>

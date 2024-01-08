@@ -1,3 +1,35 @@
+.sheetpage-full {
+    height:100%;
+    width:100%;
+    display: block;
+}
+
+.sheetpage-header-screen {
+    position:fixed;
+    height:10vh;
+    top:10vh;
+    width:100%;
+    background-color: #FFFFFF;
+}
+
+.sheetpage-underheader{
+    position:relative;
+    top:10vh;
+    padding-top:0vh;
+    padding-bottom:80vh;
+    overflow: auto;
+}
+
+
+
+.sheetpage-footer-screen {
+    position:fixed;
+    height:10vh;
+    bottom:0px;
+    width:100%;
+    background-color: #FFFFFF;
+}
+
 .page-full {
     height:100%;
     width:100%;

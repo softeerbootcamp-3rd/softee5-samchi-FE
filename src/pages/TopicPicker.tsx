@@ -15,6 +15,7 @@ export const TopicPicker = (props:Props) => {
 
     return (
         <div style={{width:"100vw", height:"100vh"}}>
+            <p style={{textAlign:'left', paddingLeft:'7vw', position:'fixed', top:'4vh'}}>대화하고 싶은<br/>관심사를 선택해주세요.</p><br/>
             {Topics.map((v) => {
                 return (
                     <>
