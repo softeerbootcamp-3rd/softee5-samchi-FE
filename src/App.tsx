@@ -24,7 +24,7 @@ interface UserSetting{
 
 function App() {
   const [selectedRole, setSelectedRole] = useState<number>(-1);
-  const [selectedTopic, setSelectedTopic] = useState<boolean[]>([]);
+  const [selectedTopic, setSelectedTopic] = useState<boolean[]>(Array<boolean>(100).fill(false));
   const [setting, setSetting] = useState<UserSetting|null>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [currentAddress, setCurrentAddress] = useState<string>('');
@@ -67,7 +67,7 @@ function App() {
       <header className="App-header" style={{width:'100%', height:'48px', backgroundColor:'#FFF'}}>
         <button style={{position:'absolute', width:'48px', height:'48px', left:'4px', color:'#4F4F4F'}}
         onClick={()=>{if(currentPage)setCurrentPage(currentPage-1)}}>
-          <img src={`${process.env.PUBLIC_URL}/image/ButtonCheck.svg`} style={{position:'absolute', width:'6px', height:'12px', left:'16px', top:'0px'}}/>
+          <img src={`${process.env.PUBLIC_URL}/image/ButtonBack.png`} style={{position:'absolute', width:'48px', height:'48px', left:'4px', top:'0px'}}/>
         </button>
       </header>
       <div className='App-fullpage' >
