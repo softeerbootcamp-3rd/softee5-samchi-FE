@@ -7,6 +7,7 @@ import { MapPinPicker } from './MapPinPicker';
 import { TrendPicker } from './pages/TrendPicker';
 import { RulePicker } from './pages/RulePicker';
 import { GPS } from './Types';
+import { getTopics, getRandomTopic, getAllDriverMarkers, getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser } from './apis/apis';
 
 interface UserSetting{
   isGuest:boolean|null,
@@ -27,7 +28,23 @@ function App() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   
   useEffect(() => {
-    
+    // getRandomTopic(1);
+    // getAllDriverMarkers();
+    // getFilteredDriverMarkers(2);
+    // getDriverDetailInfo(1, 3);
+
+    // const data = {
+    //   userType: "DRIVER",
+    //   topicIds: [1],
+    //   destinationAddress: "qqq",
+    //   estimateStartTime: "2024-01-11T16:45:31"
+    // };
+    // registerDriveChat(data, 1);
+
+    const data = {
+      username: "집에가고싶어라"
+    }
+    registerUser(data);
     
   }, [selectedRole]);
 
