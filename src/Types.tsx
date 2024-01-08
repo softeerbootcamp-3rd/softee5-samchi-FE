@@ -1,7 +1,8 @@
 export interface Props{
+    page:number,
+    setPage:React.Dispatch<React.SetStateAction<number>>
     className?:string,
     style?:React.CSSProperties,
-    children?:React.ReactNode[],
 }
 
 export type TopicClass = {
