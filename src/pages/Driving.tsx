@@ -8,16 +8,16 @@ interface DrivingProps extends Props{
 }
 export const Driving = (props: DrivingProps) => { 
 
-    setInterval(() => {
-        props.setPage(20)
-    }, 5000)
+    setTimeout(() => {
+        props.setPage(30)
+    }, 5000);
 
     return (
     <div id='hostwaiting'>
         <img src={`${process.env.PUBLIC_URL}/image/MapHostRoute.png`}
         style={{position:'absolute', height:'812px', width:'375px', top:'0px', left:'0px', zIndex:-1}} />
 
-        <div style={{position:'absolute', bottom:'0vw', left:'0px', width:'100vw', height:'300px', boxShadow:'0px 0px 32px 0px', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
+        <div id='Sheet' style={{position:'absolute', bottom:'0vw', left:'0px', width:'100vw', height:'300px', boxShadow:'0px 0px 32px 0px rgba(0, 0, 0, 0.12)', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
             <h2 style={{position:'absolute', display:'flex',justifyContent:'center', textAlign:'center', top:'32px', left:'129px', color:'#1C1C1C', fontSize:'24px', fontStyle:'normal', fontWeight:'700', lineHeight:'34px', letterSpacing:'-0.5px'}}>앞으로 400m</h2>
             <h2 style={{position:'absolute', top:'70px', left:'140px', color:'#757575', fontSize:'16px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%'}}>3분 후 도착예정</h2>
             <img style={{position:'absolute', width:'48px', height:'48px', top:'114px', left:'20px'}} 

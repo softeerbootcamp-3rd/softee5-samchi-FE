@@ -12,7 +12,7 @@ export const DriverConfirm = (props: DriverConfirmProps) => {
         <div>
         <img src={`${process.env.PUBLIC_URL}/image/MapSetDestDummy.png`} style={{position:'absolute', top:'27px', left:'0px', width:'384px', height:'407px', zIndex:'-1'}}/>
         </div>
-        <div style={{position:'absolute', top:'396px', left:'0px', width:'375px', height:'416px', boxShadow:'0px 0px 32px 0px', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
+        <div id='Sheet' style={{position:'absolute', top:'396px', left:'0px', width:'375px', height:'416px', boxShadow:'0px 0px 32px 0px rgba(0, 0, 0, 0.12)', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
             <p style={{position:'absolute', top:'48px', left:'21px', width:'42px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>목적지</p>
             <img src={`${process.env.PUBLIC_URL}/image/MarkerBlue.png`} style={{position:'absolute', top:'78px', left:'21px'}}></img>
             <p style={{position:'absolute', top:'78px', left:'47px', width:'170px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', color:'#000000'}}>07(일) 오전 8시 55분</p>
@@ -35,7 +35,7 @@ export const DriverConfirm = (props: DriverConfirmProps) => {
 
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#3885F8', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {props.setSelection(true); console.log(props.selection); props.setPage(props.page + 1)}} >
+            onClick={() => {props.setSelection(true); console.log(props.selection); props.setPage(6)}} >
                 <p style={{ top:'16px', height:'20px',  wordWrap: 'break-word', textAlign: 'center', color: 'white', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>드라이브챗 시작하기</p>
         </button>
     </div>

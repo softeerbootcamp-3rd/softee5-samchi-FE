@@ -14,6 +14,7 @@ export type User = {
 
 export type Guest = User &{
     phone:string,
+    end:string,
 }
 
 export type Driver = User & {
