@@ -15,6 +15,24 @@ export interface DriverChatRegistrationRequestDto {
     estimateStartTime: string;
 }
 
+export interface DriveChatApplicationRequestDto {
+    driverId: number;
+}
+
+export interface ConfirmMatchingRequestDto {
+    matchingId: number;
+}
+
+export interface ConversationSummaryRequestDto {
+    conversationText: string;
+}
+
+export interface ReviewRequestDto {
+    userId: number;
+    matchId: number;
+    content: string;
+}
+
 /**
  * Response DTO
  */
@@ -55,6 +73,26 @@ export interface DriverChatRegistrationResponseDto {
     driverId: number;
     guestId: number;
     userType: string;
+}
+
+export interface DriveChatApplicationCheckResponseDto {
+    isFound: boolean;
+}
+
+export interface ApplicationAcceptCheckResponseDto {
+    isBoarding: boolean;
+}
+
+export interface ConfirmMatchingResponseDto {
+    matchingId: number;
+    guestId: number,
+    driverId: number,
+    content: string,
+    driverCount: number
+}
+
+export interface ConversationSummaryResponseDto {
+    contents: string;
 }
 
 
@@ -123,3 +161,54 @@ export const registerDriveChat = async (data: DriverChatRegistrationRequestDto, 
     });
     return response.data;
 };
+
+/**
+ * Match 관련
+ */
+
+// 드라이브 챗 신청이 들어왔는지 체크하는 api
+export const driveChatApplicationCheck = async (driverId: number): ApiResponse<DriveChatApplicationCheckResponseDto[]> => {
+    const response = await fetcher.get(`/match/driver/${driverId}`);
+    return response.data;
+}
+
+// 운전자의 의해 동승 신청이 수락되었는지 체크
+export const checkApplicationAccept = async (matchId: number): ApiResponse<ApplicationAcceptCheckResponseDto[]> => {
+    const response = await fetcher.get(`/match/${matchId}`);
+    return response.data;
+}
+
+// 운전자에게 동승 요청하기
+export const applicationDriveChat = async (data: DriveChatApplicationRequestDto, userId: number): ApiResponse<ApplicationAcceptCheckResponseDto[]> => {
+    const response = await fetcher.post(`/match/request`, data, {
+        headers: {
+            userid: userId
+        }
+    });
+    return response.data;
+}
+
+// 매칭 확정하기
+export const confirmMatching = async (data: ConfirmMatchingRequestDto, userId: number): ApiResponse<ConfirmMatchingResponseDto[]> => {
+    const response = await fetcher.put(`/match/confirm`, data, {
+        headers: {
+            userid: userId
+        }
+    });
+    return response.data;
+}
+
+// 동승 종료 후 대화 요약하기
+export const converstationSummary = async (data: ConversationSummaryRequestDto, matchId: number): ApiResponse<ConversationSummaryResponseDto[]> => {
+    const response = await fetcher.post(`/match/${matchId}/conversation`, data);
+    return response.data;
+}
+
+/**
+ * Review 관련 
+ */
+
+export const doReview = async (data: ReviewRequestDto): ApiResponse<[]> => {
+    const response = await fetcher.post(`/review`, data);
+    return response.data;
+}

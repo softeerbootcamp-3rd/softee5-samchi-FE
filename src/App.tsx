@@ -7,7 +7,10 @@ import { MapPinPicker } from './MapPinPicker';
 import { TrendPicker } from './pages/TrendPicker';
 import { RulePicker } from './pages/RulePicker';
 import { GPS } from './Types';
-import { getTopics, getRandomTopic, getAllDriverMarkers, getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser } from './apis/apis';
+import { getTopics, getRandomTopic, getAllDriverMarkers, 
+  getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser,
+  driveChatApplicationCheck, checkApplicationAccept, applicationDriveChat, 
+  converstationSummary, confirmMatching, doReview } from './apis/apis';
 
 interface UserSetting{
   isGuest:boolean|null,
@@ -41,10 +44,35 @@ function App() {
     // };
     // registerDriveChat(data, 1);
 
-    const data = {
-      username: "집에가고싶어라"
-    }
-    registerUser(data);
+    // const data = {
+    //   username: "집에가고싶어라"
+    // }
+    // registerUser(data);
+
+    // driveChatApplicationCheck(7);
+    // checkApplicationAccept(5);
+
+    //  const data = {
+    //   driverId: 12
+    // }
+    // applicationDriveChat(data, 6);    
+
+    // const data = {
+    //   conversationText: "qwerqewr"
+    //   }
+    // converstationSummary(data, 19);
+    
+    // const data = {
+    //   matchingId: 17
+    // }
+    // confirmMatching(data, 6);
+
+    // const data = {
+    //   userId: 8,
+    //   matchId: 17,
+    //   content: "qerqwerqwer"
+    // }
+    // doReview(data);
     
   }, [selectedRole]);
 
