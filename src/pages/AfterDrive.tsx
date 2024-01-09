@@ -16,7 +16,7 @@ export const AfterDrive = (props: AfterDriveProps) => {
         <div id='sheet' style={{position:'absolute', bottom:'0px', left:'0px', width:'375px', height:'754px', boxShadow:'0px 0px 32px 0px rgba(0, 0, 0, 0.12)', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
             <h2 style={{position:'absolute', left:'20px', top:'48px', fontWeight:'700', fontSize:'20px', color:'#1C1C1C'}}>이동이 완료되었습니다.</h2>    
             <p style={{position:'absolute', left:'20px', top:'90px', fontWeight:'700', fontSize:'14px', color:'#1C1C1C'}}>{props.opposite.end}</p>    
-            <p style={{position:'absolute', left:'20px', top:'112px', fontWeight:'400', fontSize:'14px', color:'#757575'}}>{Date.now().toLocaleString('ko-KR')}</p>
+            <p style={{position:'absolute', left:'20px', top:'112px', fontWeight:'400', fontSize:'14px', color:'#757575'}}>{`${new Date().getFullYear()}.${new Date().getMonth() + 1}.${new Date().getDate()} ${new Date().getHours()}:${new Date().getMinutes()}`}</p>
             <button style={{position:'absolute', top:'149px', left:'20px', width: 163, height: 35, background: '#F7F7F7', borderRadius: 8, overflow: 'hidden', border: '1px #D6D6D6 solid', justifyContent: 'center', alignItems: 'center', gap: 10, display: 'inline-flex'}}
                 onClick={()=>{props.setPage(31)}}>
                 <a style={{textAlign: 'center', color: '#4F4F4F', fontSize: 14, fontFamily: 'Pretendard', fontWeight: '700', lineHeight: 20, wordWrap: 'break-word'}}>대화내용 요약 받기</a>

@@ -3,7 +3,6 @@ import { Driver, Props } from "../Types";
 interface ShowDriverInfoProps extends Props{
     driver:Driver,
     setDriver:React.Dispatch<React.SetStateAction<Driver>>,
-    drivers:Driver[],
     //left:number[],
     //setLeft:React.Dispatch<React.SetStateAction<number[]>>,
 }
@@ -14,10 +13,10 @@ export const ShowDriverInfo = (props: ShowDriverInfoProps) => {
         <img src={`${process.env.PUBLIC_URL}/image/MapHostWaitingCut.png`}
         style={{position:'absolute', height:'812px', width:'375px', top:'0px', left:'0px', zIndex:-1}} />
 
-            <button  onClick={()=>{props.setPage(21)}} style={{position:'absolute', width:'42px', height:'42px', top:'300px', left:'300px'}}>
+            <button  onClick={()=>{props.setPage(20)}} style={{position:'absolute', width:'42px', height:'42px', top:'300px', left:'300px'}}>
                 <img src={`${process.env.PUBLIC_URL}/image/PinNotSame.png`}/>
             </button>
-            <button onClick={()=>{props.setPage(21)}}>
+            <button onClick={()=>{props.setPage(20)}}>
                 <img src={`${process.env.PUBLIC_URL}/image/PinSame.png`}/>
             </button>
 
@@ -40,7 +39,7 @@ export const ShowDriverInfo = (props: ShowDriverInfoProps) => {
                 <img src={`${process.env.PUBLIC_URL}/image/MarkerBlue.png`} style={{position:'absolute', top:'1px', left:'1px', width:'20px', height:'20px'}}></img>
                 <p style={{position:'absolute', top:'78px', left:'47px', width:'170px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', color:'#000000'}}>07(일) 오전 8시 55분</p>
                 <p style={{position:'absolute', top:'116px', left:'21px', width:'91px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>출발 예정 시간</p>
-                <p style={{position:'absolute', top:'144px', left:'21px', width:'139px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', color:'#000000'}}>07(일) 오전 8시 55분</p>
+                <p style={{position:'absolute', top:'144px', left:'21px', width:'143px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', color:'#000000'}}>07(일) 오전 8시 55분</p>
                 <p style={{position:'absolute', top:'184px', left:'21px', width:'91px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>관심사</p>
                 <div style={{position:'absolute', top:'212px', left:'20px', width:'49px', height:'37px', fontSize:'16px', borderRadius:'8px', border:'1px solid', borderColor:'#3885F8', backgroundColor:'#FFF'}}>
                     <p style={{position:'absolute', top:'8px', left:'12px', fontSize:'14px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', color:'#3885F8'}}>금융</p>

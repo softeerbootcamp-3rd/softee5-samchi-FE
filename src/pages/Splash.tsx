@@ -13,8 +13,12 @@ export const Splash = (props : SplashProps) => {
         setNickname(event.target.value);
     }
     const click = () => {
-        props.setUser({nickname:nickname, uid:-1, topic:[], before:-1});
-        props.setPage(1);
+        registerUser({username:nickname}).then((res) => {
+            props.setUser({nickname:nickname, uid:res.data.userId, topic:[], before:-1, type:'', end:''});
+            console.log(res);
+            props.setPage(1);
+        }).catch((err) => {console.log(err)});
+        
     }
     
     return(

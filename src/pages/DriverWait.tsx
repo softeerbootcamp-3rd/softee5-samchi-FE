@@ -1,12 +1,15 @@
-import React, {useEffect} from "react";
-import { Props } from "../Types";
+import React, {useEffect, useState} from "react";
+import { Driver, Props, User } from "../Types";
+import {applicationDriveChat, checkApplicationAccept} from '../apis/apis'
 
 interface DriverWaitProps extends Props{
-    selection:number,
-    setSelection:React.Dispatch<React.SetStateAction<number>>,
+    user:User,
+    driver:Driver,
 }
 export const DriverWait = (props: DriverWaitProps) => { 
 
+    const [board, setBoard] = useState<number>(0);
+    var back = false
     
     /*
     var dummy = setTimeout(()=>{props.setSelection(1)}, 5000);
@@ -15,7 +18,23 @@ export const DriverWait = (props: DriverWaitProps) => {
         props.setPage(props.selection === -1? 5 : 7);
     }, [props.selection])
     */
-    var dummy = setTimeout(()=>{props.setPage(8)}, 5000);
+    useEffect(() => {
+        applicationDriveChat({driverId:props.driver.did}, props.user.uid).then((res) => {
+            console.log('applicationDriveChat Successed' + res);
+            res.data.success && setBoard(res.data.matchedId);
+        }).catch(err => console.log('Send Driver Call Failed : ' + err));
+    }, []);
+
+    useEffect(() => {
+        checkApplicationAccept(board).then(res => {
+            console.log('Get Driver Acception : ' + res)
+            if(back) {back = false; props.setPage(6);}
+            if(res.data[0].isMatchConfirmed) props.setPage(8);
+            else props.setPage(6);
+            }).catch(err => {console.log('Get Driver Acception Failed : ' + err);});
+        
+    }, [board]);
+
     return (
     <div id='wait'>
         <h2 style={{position:'absolute', top:'58px', left:'center', width:'76px', height:'20px', alignItems:'center', backgroundColor:'#FFF', gap:'97px', lineHeight:'20px', fontWeight:'700',fontSize:'14px',color:'#1C1C1C', textAlign:'center'}}>최종확인</h2>
@@ -30,7 +49,7 @@ export const DriverWait = (props: DriverWaitProps) => {
 
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', border:'1px solid', borderColor:'#3885F8', backgroundColor:'#F7F9FF', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {clearTimeout(dummy); props.setPage(6);}} >
+            onClick={() => {back = true; props.setPage(6);}} >
                 <p style={{ top:'16px', height:'20px',  wordWrap: 'break-word', textAlign: 'center', color: '#3885F8', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>취소하기</p>
         </button>
     </div>

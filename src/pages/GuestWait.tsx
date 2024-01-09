@@ -1,13 +1,28 @@
-import React, {useEffect} from "react";
-import { Props } from "../Types";
+import { useEffect } from 'react';
+import {registerDriveChat} from '../apis/apis'
+import { Driver, Guest, User, Props } from "../Types";
 
 interface GuestWaitProps extends Props{
+    user:User,
+    driver:Driver,
 }
 export const GuestWait = (props: GuestWaitProps) => { 
 
+
     
     var dummy = setTimeout(()=>{props.setPage(23)}, 5000);
-
+    useEffect(() => {
+        registerDriveChat(
+            {
+                userType: 'DRIVER',
+                topicIds: props.driver.topic,
+                destinationAddress:props.driver.end,
+                estimateStartTime: props.driver.expire,
+            }, props.user.uid
+        ).then(res => {
+                
+        })
+    }, [])
 
     return (
     <div id='guestWait'>

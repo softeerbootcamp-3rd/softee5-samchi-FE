@@ -1,5 +1,5 @@
 import React from "react";
-import { User } from "../Types";
+import { User, Guest } from "../Types";
 import { registerDriveChat } from "../apis/apis";
 
 interface Props{
@@ -8,6 +8,7 @@ interface Props{
     setSelection:React.Dispatch<React.SetStateAction<number>>,
     page:number,
     setPage:React.Dispatch<React.SetStateAction<number>>,
+    setGuest:React.Dispatch<React.SetStateAction<Guest>>,
     style?:React.CSSProperties,
 }
 
@@ -16,15 +17,25 @@ export const RolePicker = (props : Props) => {
     const click = () => {
         if(props.selection !== -1) 
         {
-            if(props.selection !== 2)
+            if(props.selection === 2)
             registerDriveChat({
                 userType:'GUEST',
                 topicIds:props.user.topic,
                 destinationAddress:'',
                 estimateStartTime:''
             }, props.user.uid).then((res) => {
-                console.log(res);
-            });
+                props.setGuest({
+                    uid:props.user.uid,
+                    nickname:props.user.nickname,
+                    before:props.user.before,
+                    topic:props.user.topic,
+                    end:'',
+                    gid:res.data[0].guestId,
+                    type:'GUEST',
+                })
+                console.log('Guest registered : ' + res);
+                console.log('topic : ' + props.user.topic);
+            }).catch(err => console.log('Topc Error : ' + err));
             props.setPage(props.selection === 1 ? 4 : 20)
         }
     }

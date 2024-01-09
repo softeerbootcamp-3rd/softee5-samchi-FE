@@ -6,7 +6,7 @@ interface GuestGoingProps extends Props{
 }
 export const GuestGoing = (props: GuestGoingProps) => { 
 
-    setTimeout(() => {props.setPage(10)}, 5000);
+    setTimeout(() => {props.setPage(11)}, 5000);
 
     return (
     <div id='guestGaiting'>

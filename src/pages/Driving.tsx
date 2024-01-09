@@ -1,8 +1,10 @@
 import { Props } from "../Types";
-import { Guest } from "../Types";
+import { Guest, User, Driver } from "../Types";
 
 interface DrivingProps extends Props{
     guest:Guest,
+    user:User,
+    driver:Driver,
     //left:number[],
     //setLeft:React.Dispatch<React.SetStateAction<number[]>>,
 }
@@ -22,8 +24,8 @@ export const Driving = (props: DrivingProps) => {
             <h2 style={{position:'absolute', top:'70px', left:'140px', color:'#757575', fontSize:'16px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%'}}>3분 후 도착예정</h2>
             <img style={{position:'absolute', width:'48px', height:'48px', top:'114px', left:'20px'}} 
             src={`${process.env.PUBLIC_URL}/image/ImageGuest.png`}/>
-            <p style={{position:'absolute', top:'114px', left:'80px', fontSize:'16px', fontWeight:700, lineHeight:'150%', color:'#1C1C1C'}}>{props.guest.nickname} 동승자</p>
-            <p style={{position:'absolute', top:'144px', left:'80px', fontSize:'14px', fontWeight:400, lineHeight:'150%', color:'#757575'}}>Drive Agora {props.guest.before}회</p>
+            <p style={{position:'absolute', top:'114px', left:'80px', fontSize:'16px', fontWeight:700, lineHeight:'150%', color:'#1C1C1C'}}>{props.user.type === 'GUEST' ? props.driver.nickname : props.guest.nickname} { props.user.type === 'GUEST' ? '운전자' : '동승자'}</p>
+            <p style={{position:'absolute', top:'144px', left:'80px', fontSize:'14px', fontWeight:400, lineHeight:'150%', color:'#757575'}}>Drive Agora {props.user.type === 'GUEST' ? props.driver.nickname : props.guest.before}회</p>
             <img src={`${process.env.PUBLIC_URL}/image/ButtonShare.png`} style={{position:'absolute', width:'48px', height:'48px', top:'115px', right:'20px'}} />
         </div>
         <button 
