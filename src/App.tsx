@@ -42,23 +42,25 @@ function App() {
   const [setting, setSetting] = useState<UserSetting|null>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [currentAddress, setCurrentAddress] = useState<string>('');
-  const [currentDate, setCurrentDate] = useState<Date>(new Date());
+  const [time, setTime] = useState<Date>(new Date());
   const [confirm, setConfirm] = useState<boolean>(false);
   const [matched, setMatched] = useState<boolean>(false);
   const [wait, setWait] = useState<number>(0);
   const [guest, setGuest] = useState<Guest>({uid:1, nickname:'이이잉', before:100, topic:[1, 4, 5], phone:'010-1234-5678', end:''});
   const [driver, setDriver] = useState<Driver>({uid:0, nickname:'애애앵', before:20, topic:[1,5,6], start:'어딘가', end:'저긴가', expire:new Date('2024-2-2')});
-
-
+  const [user, setUser] = useState<User>({uid:-1, before:-1, topic:[], nickname:''});
+  const [topicList, setTopicList] = useState<string[]>([]);
+  useEffect(()=>{
+    
+  }, [user, selectedRole, selectedTopic, currentAddress, time, guest, driver])
   
   const getPage = () => {
     switch(currentPage){
-      case 0: return <Splash page={currentPage} setPage={setCurrentPage}></Splash>
-      
-      case 1: return <TopicPicker selection={selectedTopic} setSelection={setSelectedTopic} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
+      case 0: return <Splash setUser={setUser} page={currentPage} setPage={setCurrentPage}></Splash>
+      case 1: return <TopicPicker user={user} setUser={setUser} topicList={topicList} setTopicList={setTopicList} topicSelected={selectedTopic} setTopicSelected={setSelectedTopic} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
       case 2: return <RulePicker selection={selectedRole} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RulePicker>;
       case 3: return <AddressPicker selection={currentAddress} setSelection={setCurrentAddress} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
-      case 4: return <TimePicker selection={currentDate} setSelection={setCurrentDate} page={currentPage} setPage={setCurrentPage}></TimePicker>;
+      case 4: return <TimePicker selection={time} setSelection={setTime} page={currentPage} setPage={setCurrentPage}></TimePicker>;
       case 5: return <DriverConfirm selection={confirm} setSelection={setConfirm} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
       case 6: return <DriverWait selection={wait} setSelection={setWait} page={currentPage} setPage={setCurrentPage}></DriverWait>;
       case 7: return <Matched matched={matched} setMatched={setMatched} page={currentPage} setPage={setCurrentPage}></Matched>;
