@@ -1,6 +1,4 @@
-import React, {useState} from "react";
-import { RuleButton } from "../RuleButton";
-import { SheetPage } from "../SheetPage";
+import React from "react";
 
 interface Props{
     selection:number,
@@ -27,8 +25,8 @@ export const RulePicker = (props : Props) => {
         {props.selection === 2 ? <img src={`${process.env.PUBLIC_URL}/image/ButtonGuestCheck.png`} style={{width:'164px', height:'209px'}}/> : <img src={`${process.env.PUBLIC_URL}/image/ButtonGuestDefault.png`}  style={{width:'164px', height:'209px'}}/>}
         </button>
         <button 
-            style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#1C1C1C', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {if(props.selection !== -1) props.setPage(props.page + 1)}} >
+            style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#3885F8', justifyContent:'center', color:'#FFFFFF'}}
+            onClick={() => {if(props.selection !== -1) props.setPage(props.selection === 1 ? 3 : 20)}} >
                 <p style={{position:'absolute', top:'16px', left:'142px', width:'51px', height:'20px', wordWrap: 'break-word', textAlign: 'center', color: 'white', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>선택완료</p>
         </button>
         </div>

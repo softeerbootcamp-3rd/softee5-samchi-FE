@@ -5,6 +5,24 @@ export interface Props{
     style?:React.CSSProperties,
 }
 
+export type User = {
+    uid:number,
+    nickname:string,
+    before:number,
+    topic:number[],
+}
+
+export type Guest = User &{
+    phone:string,
+    end:string,
+}
+
+export type Driver = User & {
+    end:string,
+    start:string,
+    expire:Date
+}
+
 export type TopicClass = {
     class:string,
     subclass:Array<Topic>,
