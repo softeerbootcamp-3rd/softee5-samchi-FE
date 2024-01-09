@@ -2,16 +2,19 @@ import React from "react";
 import styles from './fixtures/Button.module.css'
 
 type Props = {
-    onClicked:()=>void,
+    onClick:()=>void,
     imageSource?:string,
     text:string,
-    children?: React.ReactNode
+    disabled?:boolean,
+    style?:React.CSSProperties,
+    className?:string,
+    children?: React.ReactNode,
   }
   
 export const NormalButton = (props:Props) => {
 
   const clicked = () => {
-    props.onClicked();
+    props.onClick();
   }
 
   const stringCN = styles.rounded + ' text-xl px-7 py-3 rounded-2xl border-solid border-gray-200 border-2 '+
@@ -20,7 +23,9 @@ export const NormalButton = (props:Props) => {
   return(
       <button
         className={stringCN + `bg-black text-white`}
-        onClick={clicked} > 
+        onClick={clicked}
+        style={props.style} 
+        disabled={props.disabled??false}> 
         {props.imageSource ? <img src={props.imageSource} alt='ButtonImage'/> : <></>}
         <p>{props.text}</p>
       </button>

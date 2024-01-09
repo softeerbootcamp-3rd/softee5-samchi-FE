@@ -14,17 +14,8 @@ export const RuleButton = (props:Props) => {
 
   const clicked = () => {
     props.onSelect(props.groupID);
-    //Style Needs to be changed
   }
-  /*
-  const defaultCN = [
-    styles.rounded,
-    'text-xl px-7 py-3 rounded-2xl border-solid border-gray-200 border-2',
-    'transition-colors duration-150 focus-visible:duration-0',
-    //'hover:bg-gray-300 focus-visible:bg-gray-300',
-    //'focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-white focus-visible:ring-gray-300',
-  ]
-  */
+
   const stringCN = styles.rounded + ' text-xl px-7 py-3 rounded-2xl border-solid border-gray-200 border-2 '+
   'transition-colors duration-150 focus-visible:duration-0 ';
 
@@ -33,16 +24,20 @@ export const RuleButton = (props:Props) => {
     {props.selected === props.groupID ?
       <button
         className={stringCN + `bg-black text-white`}
-        onClick={clicked} > 
-        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage'/> : <></>}
-        <p>{props.text}</p>
+        onClick={clicked} style={{height:"209px", width:'164px'}}> 
+        <img src={`${process.env.PUBLIC_URL}/image/ButtonCheck.png`}/>
+        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage' style={{height:"96px", width:'96px'}}/> : <></>}
+        <br/>
+        <p style={{fontSize:"10pt"}}>{props.text}</p>
         </button>
       : 
       <button 
         className={stringCN + `bg-white text-gray-600`}
-        onClick={clicked}> 
-        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage'/> : <></>}
-        <p>{props.text}</p>
+        onClick={clicked} style={{height:"209px", width:'164px'}}> 
+        <img src={`${process.env.PUBLIC_URL}/image/ButtonCheck.png`}/>
+        {props.imageSource ? <img src={props.imageSource} alt='ButtonImage' style={{height:"96px", width:'96px'}} /> : <></>}
+        <br/>
+        <p style={{fontSize:"10pt"}}>{props.text}</p>
         </button>
     }
     </>

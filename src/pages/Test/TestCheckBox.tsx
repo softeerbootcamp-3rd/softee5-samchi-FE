@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { CheckBox } from "../Checkbox";
+import { CheckBox } from "../../Checkbox";
 
 export const TestCheckBox = () => {
     const [selectedGroup, setSelectedGroup] = useState<Array<boolean>>([]);
