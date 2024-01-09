@@ -2,7 +2,7 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import './defaultStyle.css'
 import { TopicPicker } from './pages/TopicPicker';
-import { RulePicker } from './pages/RulePicker'
+import { RolePicker } from './pages/RolePicker'
 import { GPS, Driver, Guest, User } from './Types';
 import { AddressPicker } from './pages/AddressPicker';
 import { TimePicker } from './pages/TimePicker';
@@ -59,7 +59,7 @@ function App() {
       case 0: return <Splash setUser={setUser} page={currentPage} setPage={setCurrentPage}></Splash>
       case 1: return <Main page={currentPage} setPage={setCurrentPage}></Main>
       case 2: return <TopicPicker user={user} setUser={setUser} topicList={topicList} setTopicList={setTopicList} topicSelected={selectedTopic} setTopicSelected={setSelectedTopic} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
-      case 3: return <RulePicker selection={selectedRole} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RulePicker>;
+      case 3: return <RolePicker user={user} selection={selectedRole} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RolePicker>;
       case 4: return <AddressPicker selection={currentAddress} setSelection={setCurrentAddress} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
       case 5: return <TimePicker selection={time} setSelection={setTime} page={currentPage} setPage={setCurrentPage}></TimePicker>;
       case 6: return <DriverConfirm selection={confirm} setSelection={setConfirm} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;

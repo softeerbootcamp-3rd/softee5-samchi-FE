@@ -1,6 +1,9 @@
 import React from "react";
+import { User } from "../Types";
+import { registerDriveChat } from "../apis/apis";
 
 interface Props{
+    user:User,
     selection:number,
     setSelection:React.Dispatch<React.SetStateAction<number>>,
     page:number,
@@ -8,7 +11,23 @@ interface Props{
     style?:React.CSSProperties,
 }
 
-export const RulePicker = (props : Props) => {
+export const RolePicker = (props : Props) => {
+
+    const click = () => {
+        if(props.selection !== -1) 
+        {
+            if(props.selection !== 2)
+            registerDriveChat({
+                userType:'GUEST',
+                topicIds:props.user.topic,
+                destinationAddress:'',
+                estimateStartTime:''
+            }, props.user.uid).then((res) => {
+                console.log(res);
+            });
+            props.setPage(props.selection === 1 ? 4 : 20)
+        }
+    }
     
     return(
         <div style={{width:'100%', height:'100%'}}>
