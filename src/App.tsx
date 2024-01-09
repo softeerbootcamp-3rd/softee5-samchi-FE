@@ -3,7 +3,7 @@ import {useEffect, useState} from 'react';
 import './defaultStyle.css'
 import { TopicPicker } from './pages/TopicPicker';
 import { MapPinPicker } from './MapPinPicker';
-import { RulePicker } from './pages/RulePicker';
+import { RulePicker } from './pages/RulePicker'
 import { GPS, Driver, Guest, User } from './Types';
 import { AddressPicker } from './pages/AddressPicker';
 import { TimePicker } from './pages/TimePicker';
@@ -20,6 +20,11 @@ import { Splash } from './pages/Splash';
 import { ShowDriverInfo } from './pages/ShowDriverInfo';
 import { GuestWait } from './pages/GuestWait';
 import { GuestGoing } from './pages/GuestGoing';
+import { getTopics, getRandomTopic, getAllDriverMarkers, 
+  getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser,
+  driveChatApplicationCheck, checkApplicationAccept, applicationDriveChat, 
+  converstationSummary, confirmMatching, doReview } from './apis/apis';
+
 
 interface UserSetting{
   user:User
@@ -45,15 +50,6 @@ function App() {
   const [driver, setDriver] = useState<Driver>({uid:0, nickname:'애애앵', before:20, topic:[1,5,6], start:'어딘가', end:'저긴가', expire:new Date('2024-2-2')});
 
 
-  useEffect(() => {
-    //setSetting({selectedRole, selectedTopic, null, currentAddress, currentDate, })
-    
-  }, [currentPage]);
-  /*
-  return (
-    <MapPinPicker></MapPinPicker>
-  )
-  */
   
   const getPage = () => {
     switch(currentPage){
