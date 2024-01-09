@@ -1,6 +1,5 @@
-import React, {useState} from "react";
-import { CheckBox } from "../Checkbox";
-import {Topics, Props} from '../Types'
+import React from "react";
+import {Props} from '../Types'
 
 interface TopicPickerProps extends Props{
     selection:boolean[];

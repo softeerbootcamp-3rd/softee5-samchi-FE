@@ -1,6 +1,4 @@
 import React, {useState} from "react";
-import { RuleButton } from "../RuleButton";
-import { SheetPage } from "../SheetPage";
 
 interface Props{
     selection:number,
