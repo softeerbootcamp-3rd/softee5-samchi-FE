@@ -7,7 +7,7 @@ interface TimePickerProps extends Props{
 }
 export const TimePicker = (props: TimePickerProps) => { 
     return (
-    <div>
+    <div id='time'>
         <h2 style={{position:'absolute', top:'58px', left:'149px', width:'76px', height:'20px', alignItems:'center', backgroundColor:'#FFF', gap:'97px', lineHeight:'20px', fontWeight:'700',fontSize:'14px'}}>출발 예정시간</h2>
         <p style={{position:'absolute', top:'112px', left:'20px', width:'42px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>목적지</p>
 

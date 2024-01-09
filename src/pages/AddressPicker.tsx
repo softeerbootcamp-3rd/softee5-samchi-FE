@@ -7,7 +7,7 @@ interface AddressPickerProps extends Props{
 }
 export const AddressPicker = (props: AddressPickerProps) => { 
     return (
-    <div>
+    <div id='adress' style={{touchAction:'pan-y'}}>
         <img src={`${process.env.PUBLIC_URL}/image/MarkerBlue.png`} style={{position:'absolute', top:'57px', left:'91px'}}></img>
         <button style={{position:'absolute', top:'57px', left:'112px', width:'146px', height:'21px', }}>
             <a style={{fontSize:'14px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', letterSpacing:'-0.25px'}}>서울 서초구 반포대로 30길</a>

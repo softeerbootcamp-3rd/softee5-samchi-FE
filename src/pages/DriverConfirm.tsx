@@ -10,7 +10,7 @@ export const DriverConfirm = (props: DriverConfirmProps) => {
     <div>
         <h2 style={{position:'absolute', top:'58px', left:'center', width:'76px', height:'20px', alignItems:'center', backgroundColor:'#FFF', gap:'97px', lineHeight:'20px', fontWeight:'700',fontSize:'14px',color:'#1C1C1C', textAlign:'center'}}>최종확인</h2>
         <div>
-        <img src={`${process.env.PUBLIC_URL}/image/MapHalf.png`} style={{position:'absolute', top:'27px', left:'0px', width:'384px', height:'407px', zIndex:'-1'}}/>
+        <img src={`${process.env.PUBLIC_URL}/image/MapSetDestDummy.png`} style={{position:'absolute', top:'27px', left:'0px', width:'384px', height:'407px', zIndex:'-1'}}/>
         </div>
         <div style={{position:'absolute', top:'396px', left:'0px', width:'375px', height:'416px', boxShadow:'0px 0px 32px 0px', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
             <p style={{position:'absolute', top:'48px', left:'21px', width:'42px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>목적지</p>
