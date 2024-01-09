@@ -16,41 +16,41 @@ export const AddressPicker = (props: AddressPickerProps) => {
         <input type='text'  
         style={{position:'absolute', left:'20px', top:'108px', width:'335px', height:'44px', backgroundImage:`${process.env.PUBLIC_URL}/image/SearchbarAddress.png`, backgroundRepeat:'no-repeat'}}>
         </input>
-        <button style={{position:'absolute', left:'20px', top:'168px', width:'86px', height:'36px'}} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', left:'20px', top:'168px', width:'86px', height:'36px'}} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
             <img src={`${process.env.PUBLIC_URL}/image/ButtonHome.png`}/>
         </button>
-        <button style={{position:'absolute', left:'115px', top:'168px', width:'86px', height:'36px'}} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', left:'115px', top:'168px', width:'86px', height:'36px'}} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/ButtonCompany.png`}/>
         </button>
-        <button style={{position:'absolute', left:'196px', top:'168px', width:'86px', height:'36px'}} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', left:'196px', top:'168px', width:'86px', height:'36px'}} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/ButtonSchool.png`}/>
         </button>
 
         <a style={{position:'absolute', top:'228px', left:'20px', width:'59px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>최근 장소</a>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'256px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'256px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/AdressListItem.png`}/>
         </button>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'322px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'322px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/AdressListItem.png`}/>
         </button>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'388px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'388px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/AdressListItem.png`}/>
         </button>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'454px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'454px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/AdressListItem.png`}/>
         </button>
 
         <a style={{position:'absolute', top:'552px', left:'20px', width:'59px', height:'24px', fontSize:'16px', fontStyle:'normal', fontWeight:'700', lineHeight:'150%', color:'#1C1C1C'}}>최근 경로</a>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'580px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'580px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
             <img src={`${process.env.PUBLIC_URL}/image/ListTime.png`}  />
         </button>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'646px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'646px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/ListTime.png`}  />
         </button>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'712px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'712px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/ListTime.png`}  />
         </button>
-        <button style={{position:'absolute', width:'375px', height:'64px', top:'778px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(4);}} >
+        <button style={{position:'absolute', width:'375px', height:'64px', top:'778px', }} onClick={()=>{props.setSelection('현대자동차 본사');props.setPage(5);}} >
         <img src={`${process.env.PUBLIC_URL}/image/ListTime.png`}  />
         </button>
         

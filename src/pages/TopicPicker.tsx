@@ -20,7 +20,7 @@ export const TopicPicker = (props:TopicPickerProps) => {
             topic[v.topicId] = v.name;
         });
         props.setTopicList(topic);
-        console.log(props.topicList);
+        console.log();
     })
     }, [])
 
@@ -33,7 +33,7 @@ export const TopicPicker = (props:TopicPickerProps) => {
 
     const click = () => {
         props.setUser({before:props.user.before, uid:props.user.uid, nickname:props.user.nickname, topic:topicNumbers});
-        props.setPage(2);
+        props.setPage(3);
     }
 
     

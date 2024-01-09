@@ -28,7 +28,7 @@ export const Driving = (props: DrivingProps) => {
         </div>
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#C4C4C4', justifyContent:'center', color:'#757575'}}
-            onClick={() => { props.setPage(props.page + 1)}} disabled={true} >
+            onClick={() => { }} disabled={true} >
                 <p style={{ top:'16px', height:'20px',  wordWrap: 'break-word', textAlign: 'center', color: '#757575', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>운전에 집중해주세요</p>
         </button>
     </div>

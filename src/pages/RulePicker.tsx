@@ -26,7 +26,7 @@ export const RulePicker = (props : Props) => {
         </button>
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#3885F8', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {if(props.selection !== -1) props.setPage(props.selection === 1 ? 3 : 20)}} >
+            onClick={() => {if(props.selection !== -1) props.setPage(props.selection === 1 ? 4 : 20)}} >
                 <p style={{position:'absolute', top:'16px', left:'142px', width:'51px', height:'20px', wordWrap: 'break-word', textAlign: 'center', color: 'white', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>선택완료</p>
         </button>
         </div>

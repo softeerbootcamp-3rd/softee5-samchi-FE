@@ -15,7 +15,7 @@ export const DriverWait = (props: DriverWaitProps) => {
         props.setPage(props.selection === -1? 5 : 7);
     }, [props.selection])
     */
-    var dummy = setTimeout(()=>{props.setPage(7)}, 5000);
+    var dummy = setTimeout(()=>{props.setPage(8)}, 5000);
     return (
     <div id='wait'>
         <h2 style={{position:'absolute', top:'58px', left:'center', width:'76px', height:'20px', alignItems:'center', backgroundColor:'#FFF', gap:'97px', lineHeight:'20px', fontWeight:'700',fontSize:'14px',color:'#1C1C1C', textAlign:'center'}}>최종확인</h2>
@@ -30,7 +30,7 @@ export const DriverWait = (props: DriverWaitProps) => {
 
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', border:'1px solid', borderColor:'#3885F8', backgroundColor:'#F7F9FF', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {clearTimeout(dummy); props.setPage(5); console.log(props.selection); props.setPage(props.page - 1)}} >
+            onClick={() => {clearTimeout(dummy); props.setPage(6);}} >
                 <p style={{ top:'16px', height:'20px',  wordWrap: 'break-word', textAlign: 'center', color: '#3885F8', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>취소하기</p>
         </button>
     </div>

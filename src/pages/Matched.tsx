@@ -7,7 +7,7 @@ interface MatchedProps extends Props{
 }
 export const Matched = (props: MatchedProps) => { 
 
-    setTimeout(()=>{props.setPage(8)}, 3000);
+    setTimeout(()=>{props.setPage(9)}, 3000);
     
     return (
     <div id='matched'>

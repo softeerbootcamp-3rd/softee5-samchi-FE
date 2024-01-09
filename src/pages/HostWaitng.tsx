@@ -6,7 +6,7 @@ interface HostWaitingProps extends Props{
 }
 export const HostWaiting = (props: HostWaitingProps) => { 
 
-    setTimeout(() => {props.setPage(10)}, 5000);
+    setTimeout(() => {props.setPage(11)}, 5000);
 
     return (
     <div id='hostwaiting'>

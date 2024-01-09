@@ -22,7 +22,7 @@ export const TimePicker = (props: TimePickerProps) => {
 
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#3885F8', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {console.log(props.selection);if(props.selection.getTime !== Date.now) props.setPage(5)}} >
+            onClick={() => {console.log(props.selection);if(props.selection.getTime !== Date.now) props.setPage(6)}} >
                 <p style={{position:'absolute', top:'16px', left:'142px', width:'51px', height:'20px', wordWrap: 'break-word', textAlign: 'center', color: 'white', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>선택완료</p>
         </button>
     </div>

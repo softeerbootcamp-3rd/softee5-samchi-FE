@@ -2,7 +2,6 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import './defaultStyle.css'
 import { TopicPicker } from './pages/TopicPicker';
-import { MapPinPicker } from './MapPinPicker';
 import { RulePicker } from './pages/RulePicker'
 import { GPS, Driver, Guest, User } from './Types';
 import { AddressPicker } from './pages/AddressPicker';
@@ -24,6 +23,7 @@ import { getTopics, getRandomTopic, getAllDriverMarkers,
   getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser,
   driveChatApplicationCheck, checkApplicationAccept, applicationDriveChat, 
   converstationSummary, confirmMatching, doReview } from './apis/apis';
+import { Main } from './pages/Main';
 
 
 interface UserSetting{
@@ -57,16 +57,17 @@ function App() {
   const getPage = () => {
     switch(currentPage){
       case 0: return <Splash setUser={setUser} page={currentPage} setPage={setCurrentPage}></Splash>
-      case 1: return <TopicPicker user={user} setUser={setUser} topicList={topicList} setTopicList={setTopicList} topicSelected={selectedTopic} setTopicSelected={setSelectedTopic} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
-      case 2: return <RulePicker selection={selectedRole} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RulePicker>;
-      case 3: return <AddressPicker selection={currentAddress} setSelection={setCurrentAddress} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
-      case 4: return <TimePicker selection={time} setSelection={setTime} page={currentPage} setPage={setCurrentPage}></TimePicker>;
-      case 5: return <DriverConfirm selection={confirm} setSelection={setConfirm} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
-      case 6: return <DriverWait selection={wait} setSelection={setWait} page={currentPage} setPage={setCurrentPage}></DriverWait>;
-      case 7: return <Matched matched={matched} setMatched={setMatched} page={currentPage} setPage={setCurrentPage}></Matched>;
-      case 8: return <Aggrement page={currentPage} setPage={setCurrentPage}></Aggrement>;
-      case 9: return <HostWaiting guest={guest} page={currentPage} setPage={setCurrentPage}></HostWaiting>;
-      case 10: return <Driving guest={guest} page={currentPage} setPage={setCurrentPage}></Driving>;
+      case 1: return <Main page={currentPage} setPage={setCurrentPage}></Main>
+      case 2: return <TopicPicker user={user} setUser={setUser} topicList={topicList} setTopicList={setTopicList} topicSelected={selectedTopic} setTopicSelected={setSelectedTopic} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
+      case 3: return <RulePicker selection={selectedRole} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RulePicker>;
+      case 4: return <AddressPicker selection={currentAddress} setSelection={setCurrentAddress} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
+      case 5: return <TimePicker selection={time} setSelection={setTime} page={currentPage} setPage={setCurrentPage}></TimePicker>;
+      case 6: return <DriverConfirm selection={confirm} setSelection={setConfirm} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
+      case 7: return <DriverWait selection={wait} setSelection={setWait} page={currentPage} setPage={setCurrentPage}></DriverWait>;
+      case 8: return <Matched matched={matched} setMatched={setMatched} page={currentPage} setPage={setCurrentPage}></Matched>;
+      case 9: return <Aggrement page={currentPage} setPage={setCurrentPage}></Aggrement>;
+      case 10: return <HostWaiting guest={guest} page={currentPage} setPage={setCurrentPage}></HostWaiting>;
+      case 11: return <Driving guest={guest} page={currentPage} setPage={setCurrentPage}></Driving>;
       case 20: return <SelectDriver driver={driver} setDriver={setDriver} drivers={[]} page={currentPage} setPage={setCurrentPage}></SelectDriver>;
       case 21: return <ShowDriverInfo driver={driver} setDriver={setDriver} drivers={[]} page={currentPage} setPage={setCurrentPage}></ShowDriverInfo>;
       case 22: return <GuestWait page={currentPage} setPage={setCurrentPage}></GuestWait>;
