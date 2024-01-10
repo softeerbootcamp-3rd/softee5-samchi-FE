@@ -10,17 +10,18 @@ export type User = {
     nickname:string,
     before:number,
     topic:number[],
+    type:string,
+    end:string,
 }
 
 export type Guest = User &{
-    phone:string,
-    end:string,
+    gid:number,
 }
 
 export type Driver = User & {
-    end:string,
-    start:string,
-    expire:Date
+
+    expire:string,
+    did:number,
 }
 
 export type TopicClass = {

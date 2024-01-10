@@ -11,6 +11,7 @@ export interface UserRegistrationRequestDto {
 export interface DriverChatRegistrationRequestDto {
     userType: string;
     topicIds: number[];
+    //topicIds: string[];
     destinationAddress: string;
     estimateStartTime: string;
 }
@@ -77,10 +78,11 @@ export interface DriverChatRegistrationResponseDto {
 
 export interface DriveChatApplicationCheckResponseDto {
     isFound: boolean;
+    matchId:number;
 }
 
 export interface ApplicationAcceptCheckResponseDto {
-    isBoarding: boolean;
+    isMatchConfirmed: boolean;
 }
 
 export interface ConfirmMatchingResponseDto {
@@ -95,12 +97,17 @@ export interface ConversationSummaryResponseDto {
     contents: string;
 }
 
+export interface BoardRequestResponseDto {
+    success:boolean,
+    matchedId:number
+}
+
 
 /**
  * User 관련
  */
 // User 최초 등록하기
-export const registerUser = async (data: UserRegistrationRequestDto): ApiResponse<UserRegistrationResponseDto[]> => {
+export const registerUser = async (data: UserRegistrationRequestDto): ApiResponse<UserRegistrationResponseDto> => {
     const response = await fetcher.post(`/user/register`, data);
     return response.data;
 };
@@ -127,7 +134,7 @@ export const getRandomTopic = async (params: number): ApiResponse<RecommandedTop
  */
 
 // 운전자 마커 전체 조회하기
-export const getAllDriverMarkers = async (): ApiResponse<AllMarkerIdListResponseDto[]> => {
+export const getAllDriverMarkers = async (): ApiResponse<AllMarkerIdListResponseDto> => {
     const response = await fetcher.get(`/main-map/all`);
     return response.data;
 };
@@ -143,7 +150,7 @@ export const getFilteredDriverMarkers = async (userId: number): ApiResponse<Filt
 };
 
 // 운전자 상세정보 조회하기
-export const getDriverDetailInfo = async (userId: number, driverId: number): ApiResponse<FilteredMarkerIdListResponseDto[]> => {
+export const getDriverDetailInfo = async (userId: number, driverId: number): ApiResponse<DriverDetailInfo> => {
     const response = await fetcher.get(`/main-map/detail/${driverId}`, {
         headers: {
             userid: userId
@@ -153,7 +160,7 @@ export const getDriverDetailInfo = async (userId: number, driverId: number): Api
 };
 
 // Drive Chat 시작하기
-export const registerDriveChat = async (data: DriverChatRegistrationRequestDto, userId: number): ApiResponse<DriverChatRegistrationResponseDto[]> => {
+export const registerDriveChat = async (data: DriverChatRegistrationRequestDto, userId: number): ApiResponse<DriverChatRegistrationResponseDto> => {
     const response = await fetcher.post(`/main-map/registration`, data, {
         headers: {
             userid: userId
@@ -179,7 +186,7 @@ export const checkApplicationAccept = async (matchId: number): ApiResponse<Appli
 }
 
 // 운전자에게 동승 요청하기
-export const applicationDriveChat = async (data: DriveChatApplicationRequestDto, userId: number): ApiResponse<ApplicationAcceptCheckResponseDto[]> => {
+export const applicationDriveChat = async (data: DriveChatApplicationRequestDto, userId: number): ApiResponse<BoardRequestResponseDto> => {
     const response = await fetcher.post(`/match/request`, data, {
         headers: {
             userid: userId

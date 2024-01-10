@@ -1,9 +1,9 @@
 import React from "react";
-import { Props } from "../Types";
+import { Props, Driver } from "../Types";
 
 interface DriverConfirmProps extends Props{
-    selection:boolean,
-    setSelection:React.Dispatch<React.SetStateAction<boolean>>,
+    driver:Driver,
+    setDriver:React.Dispatch<React.SetStateAction<Driver>>,
 }
 export const DriverConfirm = (props: DriverConfirmProps) => { 
     return (
@@ -35,7 +35,7 @@ export const DriverConfirm = (props: DriverConfirmProps) => {
 
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#3885F8', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {props.setSelection(true); console.log(props.selection); props.setPage(6)}} >
+            onClick={() => {props.setPage(7)}} >
                 <p style={{ top:'16px', height:'20px',  wordWrap: 'break-word', textAlign: 'center', color: 'white', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>드라이브챗 시작하기</p>
         </button>
     </div>

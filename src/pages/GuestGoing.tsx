@@ -6,7 +6,7 @@ interface GuestGoingProps extends Props{
 }
 export const GuestGoing = (props: GuestGoingProps) => { 
 
-    setTimeout(() => {props.setPage(10)}, 5000);
+    setTimeout(() => {props.setPage(11)}, 5000);
 
     return (
     <div id='guestGaiting'>
@@ -25,8 +25,11 @@ export const GuestGoing = (props: GuestGoingProps) => {
             <img src={`${process.env.PUBLIC_URL}/image/ButtonTag3.png`} style={{position:'absolute', top:'155px', left:'20px', color:'#D6D6D6'}} />
             <img src={`${process.env.PUBLIC_URL}/image/ButtonTag4.png`} style={{position:'absolute', top:'155px', left:'164px', color:'#D6D6D6'}} />
 
+            <div id='Sheet' style={{position:'absolute', bottom:'0px', left:'0px', width:'375px', height:'694px', boxShadow:'0px 0px 32px 0px rgba(0, 0, 0, 0.12)', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
             <a style={{position:'absolute', top:'237px', left:'138px', color:'4F4F4F', textAlign:'center', fontSize:'14px', fontStyle:'normal', fontWeight:'400', lineHeight:'150%', letterSpacing:'-0.6px', textDecorationLine:'underline'}}
-            onClick={()=>{props.setPage(21)}}>동승 요청 취소하기</a>
+            onClick={()=>{props.setPage(21)}}>동승 요청 취소하기</a>      
+            </div>
+
         </div>
     </div>
     );

@@ -2,15 +2,14 @@ import './App.css';
 import {useEffect, useState} from 'react';
 import './defaultStyle.css'
 import { TopicPicker } from './pages/TopicPicker';
-import { MapPinPicker } from './MapPinPicker';
-import { RulePicker } from './pages/RulePicker'
+import { RolePicker } from './pages/RolePicker'
 import { GPS, Driver, Guest, User } from './Types';
 import { AddressPicker } from './pages/AddressPicker';
 import { TimePicker } from './pages/TimePicker';
 import { DriverConfirm } from './pages/DriverConfirm';
 import { DriverWait } from './pages/DriverWait';
 import { Matched } from './pages/Matched';
-import { Aggrement } from './pages/Aggrement';
+import { Agreement } from './pages/Agreement';
 import { HostWaiting } from './pages/HostWaitng';
 import { Driving } from './pages/Driving';
 import { AfterDrive } from './pages/AfterDrive';
@@ -24,6 +23,7 @@ import { getTopics, getRandomTopic, getAllDriverMarkers,
   getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser,
   driveChatApplicationCheck, checkApplicationAccept, applicationDriveChat, 
   converstationSummary, confirmMatching, doReview } from './apis/apis';
+import { Main } from './pages/Main';
 
 
 interface UserSetting{
@@ -38,36 +38,50 @@ interface UserSetting{
 
 function App() {
   const [selectedRole, setSelectedRole] = useState<number>(-1);
-  const [selectedTopic, setSelectedTopic] = useState<boolean[]>(Array<boolean>(100).fill(false));
   const [setting, setSetting] = useState<UserSetting|null>(null);
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [currentAddress, setCurrentAddress] = useState<string>('');
-  const [currentDate, setCurrentDate] = useState<Date>(new Date());
-  const [confirm, setConfirm] = useState<boolean>(false);
-  const [matched, setMatched] = useState<boolean>(false);
-  const [wait, setWait] = useState<number>(0);
-  const [guest, setGuest] = useState<Guest>({uid:1, nickname:'이이잉', before:100, topic:[1, 4, 5], phone:'010-1234-5678', end:''});
-  const [driver, setDriver] = useState<Driver>({uid:0, nickname:'애애앵', before:20, topic:[1,5,6], start:'어딘가', end:'저긴가', expire:new Date('2024-2-2')});
+  const [time, setTime] = useState<Date>(new Date());
+  const [matchID, setMatchID] = useState<number>(-1);
+  const [guest, setGuest] = useState<Guest>({uid:1, gid:-1, nickname:'이이잉', before:100, topic:[1], end:'', type:'GUEST'});
+  const [driver, setDriver] = useState<Driver>({uid:0, did:-1, nickname:'애애앵', before:20, topic:[2], end:'저긴가', expire:'', type:'DRIVER'});
+  const [user, setUser] = useState<User>({uid:-1, before:-1, topic:[6], nickname:'', type:'', end:''});
+  const [topicList, setTopicList] = useState<string[]>([]);
+  useEffect(()=>{
+    
+  }, [user, selectedRole, currentAddress, time, guest, driver])
 
-
+  function click(u:User){
+    var newUser = {
+        uid:u.uid,
+        nickname:u.nickname,
+        before:u.before,
+        topic:u.topic,
+        type:u.type,
+        end:'',
+    };
+    setCurrentPage(6);
+  }
+  
   
   const getPage = () => {
     switch(currentPage){
-      case 0: return <Splash page={currentPage} setPage={setCurrentPage}></Splash>
-      
-      case 1: return <TopicPicker selection={selectedTopic} setSelection={setSelectedTopic} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
-      case 2: return <RulePicker selection={selectedRole} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RulePicker>;
-      case 3: return <AddressPicker selection={currentAddress} setSelection={setCurrentAddress} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
-      case 4: return <TimePicker selection={currentDate} setSelection={setCurrentDate} page={currentPage} setPage={setCurrentPage}></TimePicker>;
-      case 5: return <DriverConfirm selection={confirm} setSelection={setConfirm} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
-      case 6: return <DriverWait selection={wait} setSelection={setWait} page={currentPage} setPage={setCurrentPage}></DriverWait>;
-      case 7: return <Matched matched={matched} setMatched={setMatched} page={currentPage} setPage={setCurrentPage}></Matched>;
-      case 8: return <Aggrement page={currentPage} setPage={setCurrentPage}></Aggrement>;
-      case 9: return <HostWaiting guest={guest} page={currentPage} setPage={setCurrentPage}></HostWaiting>;
-      case 10: return <Driving guest={guest} page={currentPage} setPage={setCurrentPage}></Driving>;
-      case 20: return <SelectDriver driver={driver} setDriver={setDriver} drivers={[]} page={currentPage} setPage={setCurrentPage}></SelectDriver>;
-      case 21: return <ShowDriverInfo driver={driver} setDriver={setDriver} drivers={[]} page={currentPage} setPage={setCurrentPage}></ShowDriverInfo>;
-      case 22: return <GuestWait page={currentPage} setPage={setCurrentPage}></GuestWait>;
+      case 0: return <Splash setUser={setUser} page={currentPage} setPage={setCurrentPage}></Splash>
+      case 1: return <Main page={currentPage} setPage={setCurrentPage}></Main>
+      case 2: return <TopicPicker user={user} setUser={setUser} topicList={topicList} setTopicList={setTopicList} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
+      case 3: return <RolePicker user={user} setGuest={setGuest} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></RolePicker>;
+      case 4: return <AddressPicker driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
+      case 5: return <TimePicker driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></TimePicker>;
+      case 6: return <DriverConfirm driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
+      case 7: return <DriverWait guest={guest} setGuest={setGuest} driver={driver} setDriver={setDriver} matchID={matchID} setMatchID={setMatchID} page={currentPage} setPage={setCurrentPage}></DriverWait>;
+      case 8: return <Matched page={currentPage} setPage={setCurrentPage}></Matched>;
+      case 9: return <Agreement page={currentPage} setPage={setCurrentPage}></Agreement>;
+      case 10: return <HostWaiting driver={driver} page={currentPage} setPage={setCurrentPage}></HostWaiting>;
+      case 11: return <Driving user={user} guest={guest} driver={driver} page={currentPage} setPage={setCurrentPage}></Driving>;
+      case 19: setCurrentPage(3);break;
+      case 20: return <SelectDriver setDriver={setDriver} user={user} page={currentPage} setPage={setCurrentPage}></SelectDriver>;
+      case 21: return <ShowDriverInfo driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></ShowDriverInfo>;
+      case 22: return <GuestWait guest={guest} setGuest={setGuest} driver={driver} matchID={matchID} setMatchID={setMatchID} page={currentPage} setPage={setCurrentPage}></GuestWait>;
       case 23: return <GuestGoing driver={driver} page={currentPage} setPage={setCurrentPage}></GuestGoing>;
       case 30: return <AfterDrive opposite={driver} page={currentPage} setPage={setCurrentPage}></AfterDrive>;
       case 31: return <Summary page={currentPage} setPage={setCurrentPage}></Summary>;
@@ -81,10 +95,12 @@ function App() {
     <div className="App" style={{marginTop:'44px', marginBottom:'34px', height:'734px', width:'375px', overflow:'hidden', touchAction:'none'}}>
       <div id='StatusBar' style={{position:'absolute', top:'0px', left:'0px', width:'100vw', height:'44px', backgroundColor:'#FFF'}}></div>
       <header className="App-header" style={{width:'100%', height:'48px', backgroundColor:'#FFF'}}>
-        <button style={{position:'absolute', width:'48px', height:'48px', left:'4px', color:'#4F4F4F'}}
-        onClick={()=>{if(currentPage)setCurrentPage(()=>{return currentPage-1})}}>
+        { [2, 3, 4, 5, 6, 9, 20, 21, 31].find((e) => e === currentPage) &&
+          <button style={{position:'absolute', width:'48px', height:'48px', left:'4px', color:'#4F4F4F'}}
+          onClick={()=>{if(currentPage)setCurrentPage(()=>{return currentPage-1})}}>
           <img src={`${process.env.PUBLIC_URL}/image/ButtonBack.png`} style={{position:'absolute', width:'48px', height:'48px', left:'4px', top:'0px'}}/>
         </button>
+        }
       </header>
       <div className='App-fullpage' >
         <div>
