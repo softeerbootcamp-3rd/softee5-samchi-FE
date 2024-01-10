@@ -31,12 +31,12 @@ export const RolePicker = (props : Props) => {
                     before:props.user.before,
                     topic:props.user.topic,
                     end:'',
-                    gid:res.data[0].guestId,
+                    gid:res.data.guestId,
                     type:'GUEST',
                 })
                 console.log('Guest registered : ' + res);
                 console.log('topic : ' + props.user.topic);
-            }).catch(err => console.log('Topc Error : ' + err));
+            }).catch(err => console.log('Topic Error : ' + err));
             else if (selection === 1)
             {
                 props.setDriver({

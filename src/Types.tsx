@@ -9,7 +9,7 @@ export type User = {
     uid:number,
     nickname:string,
     before:number,
-    topic:string[],
+    topic:number[],
     type:string,
     end:string,
 }

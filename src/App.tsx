@@ -43,9 +43,9 @@ function App() {
   const [currentAddress, setCurrentAddress] = useState<string>('');
   const [time, setTime] = useState<Date>(new Date());
   const [matchID, setMatchID] = useState<number>(-1);
-  const [guest, setGuest] = useState<Guest>({uid:1, gid:-1, nickname:'이이잉', before:100, topic:['교육'], end:'', type:'GUEST'});
-  const [driver, setDriver] = useState<Driver>({uid:0, did:-1, nickname:'애애앵', before:20, topic:['부동산'], end:'저긴가', expire:'', type:'DRIVER'});
-  const [user, setUser] = useState<User>({uid:-1, before:-1, topic:[''], nickname:'', type:'', end:''});
+  const [guest, setGuest] = useState<Guest>({uid:1, gid:-1, nickname:'이이잉', before:100, topic:[1], end:'', type:'GUEST'});
+  const [driver, setDriver] = useState<Driver>({uid:0, did:-1, nickname:'애애앵', before:20, topic:[2], end:'저긴가', expire:'', type:'DRIVER'});
+  const [user, setUser] = useState<User>({uid:-1, before:-1, topic:[6], nickname:'', type:'', end:''});
   const [topicList, setTopicList] = useState<string[]>([]);
   useEffect(()=>{
     

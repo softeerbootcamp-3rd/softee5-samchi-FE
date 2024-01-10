@@ -30,7 +30,7 @@ export const GuestWait = (props: GuestWaitProps) => {
             if(!c())
             {
                 props.setGuest({
-                    gid:res.data[0].guestId,
+                    gid:res.data.guestId,
                     uid:props.guest.uid,
                     type:'GUEST',
                     end:props.guest.end,
@@ -50,6 +50,7 @@ export const GuestWait = (props: GuestWaitProps) => {
     }, [step]);
 
     useEffect(() => {
+        /*
         checkApplicationAccept(props.matchID).then(res => {
             console.log('Get Driver Acception : ' + res)
             var c = ()=>cancel;
@@ -57,6 +58,8 @@ export const GuestWait = (props: GuestWaitProps) => {
             if(res.data[0].isMatchConfirmed) props.setPage(23);
             else props.setPage(21);
             }).catch(err => {console.log('Get Driver Acception Failed : ' + err);});
+            */
+        props.setPage(23);
     }, [props.matchID]);
 
     return (

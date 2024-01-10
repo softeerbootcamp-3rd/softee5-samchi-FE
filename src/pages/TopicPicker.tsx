@@ -40,7 +40,7 @@ export const TopicPicker = (props:TopicPickerProps) => {
             before:props.user.before, 
             uid:props.user.uid, 
             nickname:props.user.nickname, 
-            topic:topicString,
+            topic:[4,5,6,7,8],
             type:props.user.type,
             end:props.user.end
         });

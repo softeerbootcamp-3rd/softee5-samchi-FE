@@ -10,8 +10,8 @@ export interface UserRegistrationRequestDto {
 
 export interface DriverChatRegistrationRequestDto {
     userType: string;
-    //topicIds: number[];
-    topicIds: string[];
+    topicIds: number[];
+    //topicIds: string[];
     destinationAddress: string;
     estimateStartTime: string;
 }
@@ -160,7 +160,7 @@ export const getDriverDetailInfo = async (userId: number, driverId: number): Api
 };
 
 // Drive Chat 시작하기
-export const registerDriveChat = async (data: DriverChatRegistrationRequestDto, userId: number): ApiResponse<DriverChatRegistrationResponseDto[]> => {
+export const registerDriveChat = async (data: DriverChatRegistrationRequestDto, userId: number): ApiResponse<DriverChatRegistrationResponseDto> => {
     const response = await fetcher.post(`/main-map/registration`, data, {
         headers: {
             userid: userId
