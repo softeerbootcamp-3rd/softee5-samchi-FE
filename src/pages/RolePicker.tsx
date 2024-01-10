@@ -1,23 +1,24 @@
-import React from "react";
-import { User, Guest } from "../Types";
+import React, {useState} from "react";
+import { User, Guest, Driver } from "../Types";
 import { registerDriveChat } from "../apis/apis";
 
 interface Props{
     user:User,
-    selection:number,
-    setSelection:React.Dispatch<React.SetStateAction<number>>,
     page:number,
     setPage:React.Dispatch<React.SetStateAction<number>>,
     setGuest:React.Dispatch<React.SetStateAction<Guest>>,
+    setDriver:React.Dispatch<React.SetStateAction<Driver>>,
     style?:React.CSSProperties,
 }
 
 export const RolePicker = (props : Props) => {
 
+    const [selection, setSelection] = useState(-1);
+
     const click = () => {
-        if(props.selection !== -1) 
+        if(selection !== -1) 
         {
-            if(props.selection === 2)
+            if(selection === 2)
             registerDriveChat({
                 userType:'GUEST',
                 topicIds:props.user.topic,
@@ -36,7 +37,20 @@ export const RolePicker = (props : Props) => {
                 console.log('Guest registered : ' + res);
                 console.log('topic : ' + props.user.topic);
             }).catch(err => console.log('Topc Error : ' + err));
-            props.setPage(props.selection === 1 ? 4 : 20)
+            else if (selection === 1)
+            {
+                props.setDriver({
+                    uid:props.user.uid,
+                    nickname:props.user.nickname,
+                    before:props.user.before,
+                    topic:props.user.topic,
+                    end:'',
+                    did:-1,
+                    expire:'',
+                    type:'DRIVER',
+                })
+            }
+            props.setPage(selection === 1 ? 4 : 20)
         }
     }
     
@@ -46,17 +60,17 @@ export const RolePicker = (props : Props) => {
         
         <button 
         style={{position:"absolute", left:'20px', top:'301px'}}
-        onClick={()=>props.setSelection(1)}>
-            {props.selection === 1 ? <img src={`${process.env.PUBLIC_URL}/image/ButtonDriverCheck.png`} style={{width:'164px', height:'209px'}}/> : <img src={`${process.env.PUBLIC_URL}/image/ButtonDriverDefault.png`}  style={{width:'164px', height:'209px'}}/>}
+        onClick={()=>setSelection(1)}>
+            {selection === 1 ? <img src={`${process.env.PUBLIC_URL}/image/ButtonDriverCheck.png`} style={{width:'164px', height:'209px'}}/> : <img src={`${process.env.PUBLIC_URL}/image/ButtonDriverDefault.png`}  style={{width:'164px', height:'209px'}}/>}
         </button>
         <button 
         style={{position:"absolute", right:'11px', top:'301px'}}
-        onClick={()=>props.setSelection(2)}>
-        {props.selection === 2 ? <img src={`${process.env.PUBLIC_URL}/image/ButtonGuestCheck.png`} style={{width:'164px', height:'209px'}}/> : <img src={`${process.env.PUBLIC_URL}/image/ButtonGuestDefault.png`}  style={{width:'164px', height:'209px'}}/>}
+        onClick={()=>setSelection(2)}>
+        {selection === 2 ? <img src={`${process.env.PUBLIC_URL}/image/ButtonGuestCheck.png`} style={{width:'164px', height:'209px'}}/> : <img src={`${process.env.PUBLIC_URL}/image/ButtonGuestDefault.png`}  style={{width:'164px', height:'209px'}}/>}
         </button>
         <button 
             style={{position:'absolute', top:'722px', width:'335px', height:'56px', left:'20px', right:'20px', bottom:'34px', borderRadius: '16px', backgroundColor:'#3885F8', justifyContent:'center', color:'#FFFFFF'}}
-            onClick={() => {if(props.selection !== -1) props.setPage(props.selection === 1 ? 4 : 20)}} >
+            onClick={click} >
                 <p style={{position:'absolute', top:'16px', left:'142px', width:'51px', height:'20px', wordWrap: 'break-word', textAlign: 'center', color: 'white', fontSize:'14px', fontFamily: 'Pretendard', fontWeight: '700', lineHeight:'20px', letterSpacing:'-0.25px'}}>선택완료</p>
         </button>
         </div>

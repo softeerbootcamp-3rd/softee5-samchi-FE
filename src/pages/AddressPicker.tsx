@@ -1,20 +1,22 @@
 import React from "react";
-import { Props, User } from "../Types";
+import { Props, Driver } from "../Types";
 
 interface AddressPickerProps extends Props{
-    user:User,
-    setUser:React.Dispatch<React.SetStateAction<User>>,
+    driver:Driver,
+    setDriver:React.Dispatch<React.SetStateAction<Driver>>,
 }
 export const AddressPicker = (props: AddressPickerProps) => { 
 
     function click(){
-        props.setUser({
-            uid:props.user.uid,
-            nickname:props.user.nickname,
-            before:props.user.before,
-            topic:props.user.topic,
-            type:props.user.type,
-            end:'2024-01-11T19:57:36.268Z',
+        props.setDriver({
+            uid:props.driver.uid,
+            nickname:props.driver.nickname,
+            before:props.driver.before,
+            topic:props.driver.topic,
+            type:'DRIVER',
+            expire:'',
+            end:props.driver.end,
+            did:-1,
         });
         props.setPage(5);
     }

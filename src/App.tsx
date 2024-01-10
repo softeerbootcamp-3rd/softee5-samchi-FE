@@ -9,7 +9,7 @@ import { TimePicker } from './pages/TimePicker';
 import { DriverConfirm } from './pages/DriverConfirm';
 import { DriverWait } from './pages/DriverWait';
 import { Matched } from './pages/Matched';
-import { Aggrement } from './pages/Aggrement';
+import { Agreement } from './pages/Agreement';
 import { HostWaiting } from './pages/HostWaitng';
 import { Driving } from './pages/Driving';
 import { AfterDrive } from './pages/AfterDrive';
@@ -42,9 +42,7 @@ function App() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const [currentAddress, setCurrentAddress] = useState<string>('');
   const [time, setTime] = useState<Date>(new Date());
-  const [confirm, setConfirm] = useState<boolean>(false);
-  const [matched, setMatched] = useState<boolean>(false);
-  const [wait, setWait] = useState<number>(0);
+  const [matchID, setMatchID] = useState<number>(-1);
   const [guest, setGuest] = useState<Guest>({uid:1, gid:-1, nickname:'이이잉', before:100, topic:['교육'], end:'', type:'GUEST'});
   const [driver, setDriver] = useState<Driver>({uid:0, did:-1, nickname:'애애앵', before:20, topic:['부동산'], end:'저긴가', expire:'', type:'DRIVER'});
   const [user, setUser] = useState<User>({uid:-1, before:-1, topic:[''], nickname:'', type:'', end:''});
@@ -71,19 +69,19 @@ function App() {
       case 0: return <Splash setUser={setUser} page={currentPage} setPage={setCurrentPage}></Splash>
       case 1: return <Main page={currentPage} setPage={setCurrentPage}></Main>
       case 2: return <TopicPicker user={user} setUser={setUser} topicList={topicList} setTopicList={setTopicList} page={currentPage} setPage={setCurrentPage}></TopicPicker>;
-      case 3: return <RolePicker user={user} selection={selectedRole} setGuest={setGuest} setSelection={setSelectedRole} page={currentPage} setPage={setCurrentPage}></RolePicker>;
-      case 4: return <AddressPicker user={user} setUser={setUser} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
-      case 5: return <TimePicker user={user} setUser={setUser} page={currentPage} setPage={setCurrentPage}></TimePicker>;
-      case 6: return <DriverConfirm selection={confirm} setSelection={setConfirm} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
-      case 7: return <DriverWait user={user} driver={driver} page={currentPage} setPage={setCurrentPage}></DriverWait>;
+      case 3: return <RolePicker user={user} setGuest={setGuest} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></RolePicker>;
+      case 4: return <AddressPicker driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></AddressPicker>;
+      case 5: return <TimePicker driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></TimePicker>;
+      case 6: return <DriverConfirm driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></DriverConfirm>;
+      case 7: return <DriverWait guest={guest} setGuest={setGuest} driver={driver} setDriver={setDriver} matchID={matchID} setMatchID={setMatchID} page={currentPage} setPage={setCurrentPage}></DriverWait>;
       case 8: return <Matched page={currentPage} setPage={setCurrentPage}></Matched>;
-      case 9: return <Aggrement page={currentPage} setPage={setCurrentPage}></Aggrement>;
+      case 9: return <Agreement page={currentPage} setPage={setCurrentPage}></Agreement>;
       case 10: return <HostWaiting driver={driver} page={currentPage} setPage={setCurrentPage}></HostWaiting>;
       case 11: return <Driving user={user} guest={guest} driver={driver} page={currentPage} setPage={setCurrentPage}></Driving>;
       case 19: setCurrentPage(3);break;
       case 20: return <SelectDriver setDriver={setDriver} user={user} page={currentPage} setPage={setCurrentPage}></SelectDriver>;
       case 21: return <ShowDriverInfo driver={driver} setDriver={setDriver} page={currentPage} setPage={setCurrentPage}></ShowDriverInfo>;
-      case 22: return <GuestWait user={user} driver={driver} page={currentPage} setPage={setCurrentPage}></GuestWait>;
+      case 22: return <GuestWait guest={guest} setGuest={setGuest} driver={driver} matchID={matchID} setMatchID={setMatchID} page={currentPage} setPage={setCurrentPage}></GuestWait>;
       case 23: return <GuestGoing driver={driver} page={currentPage} setPage={setCurrentPage}></GuestGoing>;
       case 30: return <AfterDrive opposite={driver} page={currentPage} setPage={setCurrentPage}></AfterDrive>;
       case 31: return <Summary page={currentPage} setPage={setCurrentPage}></Summary>;

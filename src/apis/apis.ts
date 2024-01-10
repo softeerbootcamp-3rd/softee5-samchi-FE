@@ -78,6 +78,7 @@ export interface DriverChatRegistrationResponseDto {
 
 export interface DriveChatApplicationCheckResponseDto {
     isFound: boolean;
+    matchId:number;
 }
 
 export interface ApplicationAcceptCheckResponseDto {

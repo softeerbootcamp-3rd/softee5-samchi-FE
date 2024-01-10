@@ -1,15 +1,15 @@
 import React from "react";
 import { Props } from "../Types";
 
-interface AggrementProps extends Props{
+interface AgreementProps extends Props{
 }
-export const Aggrement = (props: AggrementProps) => { 
+export const Agreement = (props: AgreementProps) => { 
     return (
     <div id='Aggrement'>
         <div>
         <img src={`${process.env.PUBLIC_URL}/image/MapHalf.png`} style={{position:'absolute', top:'27px', left:'0px', width:'384px', height:'407px', zIndex:'-1'}}/>
         </div>
-        <div id='Sheet' style={{position:'absolute', bottom:'0px', left:'0px', width:'375px', height:'694px', boxShadow:'0px 0px 32px 0px rgba(0, 0, 0, 0.12)', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF'}}>
+        <div id='Sheet' style={{position:'absolute', bottom:'0px', left:'0px', width:'375px', height:'694px', boxShadow:'0px 0px 32px 0px rgba(0, 0, 0, 0.12)', borderRadius:'24px 24px 0px 0px', backgroundColor:'#FFF', backgroundImage:`${process.env.PUBLIC_URL}/image/SheetAgreement.png`}}>
             
         </div>
 
