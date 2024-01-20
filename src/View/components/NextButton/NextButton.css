@@ -1,0 +1,55 @@
+.next-button{
+    position:fixed;
+    bottom:34px;
+    width:calc(100vw - 40px);
+    height:56px;
+    left:20px;
+    border-radius: 16px;
+    display:flex;
+    align-items: center;
+    justify-content:center;
+    gap: 10px;
+    flex-shrink: 0;
+    background-color: var(--Main-color, #3885F8);
+}
+.next-button:disabled{
+    background-color: var(--grayscale-Gray-03, #C4C4C4);
+}
+.next-button>p{
+    text-align: center;
+    color:var(--grayscale-white, #FFF);
+
+    /*h2*/
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 20px; /* 142.857% */ 
+}
+.next-button:disabled>p{
+    color: var(--grayscale-Gray-04, #757575);
+    text-align: center;
+
+    /*p2*/
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}
+
+.cancel-button{
+    border-color: var(--Main-color, #3885F8);
+    background-color: var(--select-blue, #F7F9FF);
+}
+.cancel-button>p{
+    color: var(--Main-color, #3885F8);
+    text-align: center;
+
+    /* p2 */
+    font-family: Pretendard;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}

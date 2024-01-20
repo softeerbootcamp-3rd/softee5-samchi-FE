@@ -1,0 +1,20 @@
+.interest-block
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 8px;
+    border-color: var(--Main-color, #3885F8);
+    background-color: var(--grayscale-white, #FFF);
+}
+
+.interest-block>p{
+    color: var(--Main-color, #3885F8);
+
+    /* p2 */
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
+}
