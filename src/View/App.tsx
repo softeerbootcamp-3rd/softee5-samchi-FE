@@ -1,29 +1,29 @@
 import './App.css';
 import {useEffect, useState} from 'react';
 import './defaultStyle.css'
-import { TopicPicker } from './pages/TopicPicker';
-import { RolePicker } from './pages/RolePicker'
-import { GPS, Driver, Guest, User } from './Types';
-import { AddressPicker } from './pages/AddressPicker';
-import { TimePicker } from './pages/TimePicker';
-import { DriverConfirm } from './pages/DriverConfirm';
-import { DriverWait } from './pages/DriverWait';
-import { Matched } from './pages/Matched';
-import { Agreement } from './pages/Agreement';
-import { HostWaiting } from './pages/HostWaitng';
-import { Driving } from './pages/Driving';
-import { AfterDrive } from './pages/AfterDrive';
-import { Summary } from './pages/Summary';
-import { SelectDriver } from './pages/SelectDriver';
-import { Splash } from './pages/Splash';
-import { ShowDriverInfo } from './pages/ShowDriverInfo';
-import { GuestWait } from './pages/GuestWait';
-import { GuestGoing } from './pages/GuestGoing';
+import { TopicPicker } from './pages/TopicPicker/TopicPicker';
+import { RolePicker } from './pages/RolePicker/RolePicker'
+import { GPS, Driver, Guest, User } from '../Types';
+import { AddressPicker } from './pages/AddressPicker/AddressPicker';
+import { TimePicker } from './pages/TimePicker/TimePicker';
+import { DriverConfirm } from './pages/DriverConfirm/DriverConfirm';
+import { DriverWait } from './pages/DriverWait/DriverWait';
+import { Matched } from './pages/Matched/Matched';
+import { Agreement } from './pages/Agreement/Agreement';
+import { HostWaiting } from './pages/HostWaitng/HostWaitng';
+import { Driving } from './pages/Driving/Driving';
+import { AfterDrive } from './pages/AfterDrive/AfterDrive';
+import { Summary } from './pages/Summary/Summary';
+import { SelectDriver } from './pages/SelectDriver/SelectDriver';
+import { Splash } from './pages/Splash/Splash';
+import { ShowDriverInfo } from './pages/ShowDriverInfo/ShowDriverInfo';
+import { GuestWait } from './pages/GuestWait/GuestWait';
+import { GuestGoing } from './pages/GuestGoing/GuestGoing';
 import { getTopics, getRandomTopic, getAllDriverMarkers, 
   getFilteredDriverMarkers, getDriverDetailInfo, registerDriveChat, registerUser,
   driveChatApplicationCheck, checkApplicationAccept, applicationDriveChat, 
-  converstationSummary, confirmMatching, doReview } from './apis/apis';
-import { Main } from './pages/Main';
+  converstationSummary, confirmMatching, doReview } from '../apis/apis';
+import { Main } from './pages/Main/Main';
 
 
 interface UserSetting{

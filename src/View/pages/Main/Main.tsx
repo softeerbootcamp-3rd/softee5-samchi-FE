@@ -1,5 +1,5 @@
 import React from "react";
-import { Props } from "../Types";
+import { Props } from "../../Types";
 
 interface MainProps extends Props{
 }
