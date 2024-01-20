@@ -1,7 +1,3 @@
-let page = 0;
+import {makeProperty} from '../utils.js';
 
-export const setPage = (newPage) => {
-    page = newPage;
-};
-
-export const getPage = () => page;
+export const {setPage, getPage, addPageListener} = makeProperty();
