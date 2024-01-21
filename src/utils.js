@@ -1,5 +1,5 @@
-function makeProperty() {
-    let value;
+function makeProperty(initialValue = undefined) {
+    let value = initialValue;
     const listeners = [];
     function setValue(newValue) {
         if(value === newValue) return;
