@@ -1,0 +1,21 @@
+.mappin{
+    width:42px;
+    height:44px;
+    background-image: url(./normalPin.svg);
+}
+
+.mappin::selection{
+    background-image: url(./selectedNormalPin.svg);
+}
+
+.mappin.interested{
+    background-image: url(./interestedPin.svg);
+}
+
+.mappin.interested::selection{
+    background-image: url(./selectedInterestedPin.svg);
+}
+
+.mappin.end{
+    background-image: url(./endPin.svg);
+}
