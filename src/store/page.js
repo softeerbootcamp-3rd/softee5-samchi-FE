@@ -1,3 +1,3 @@
 import {makeProperty} from '../utils.js';
 
-export const {setPage, getPage, addPageListener} = makeProperty();
+export const {setPage, getPage, addPageListener} = makeProperty(0);
