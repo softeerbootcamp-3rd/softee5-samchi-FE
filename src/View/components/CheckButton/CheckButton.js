@@ -1,9 +1,9 @@
-export const CheckButton = ({text}) =>
+export const CheckButton = ({id = undefined, name, text}) =>
     `
-    <button class='box button check-button'><p class='p2'>${text}</p></button>
+    <input name='${name}' type='checkbox' class='box button check-button' ${id?`id='${id}'` : ''}>${text}</input>
     `;
 
-export const CheckRequestButton = ({text}) =>
+export const CheckRequestButton = ({id=undefined, name, text}) =>
     `
-    <button class='box button check-request-button'><p class='caption'>${text}</p></button>
+    <input name='${name}' type='checkbox' class='box button check-request-button' ${id?`id='${id}'` : ''}>${text}</input>
     `;

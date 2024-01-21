@@ -22,16 +22,12 @@
     padding: 8px;
     border-color: var(--grayscale-Gray-02, #D6D6D6);
     background-color: var(--grayscale-white, #FFF);
+    /* caption */
+    color: var(--grayscale-Gray-05, #4F4F4F);
 }
 .check-request-button:checked{
     border-color: var(--Main-color, #3885F8);
     background-color: var(--select-blue, #F7F9FF);
-}
-.check-request-button>p{
-    /* caption */
-    color: var(--grayscale-Gray-05, #4F4F4F);
-}
-.check-request-button:checked>p{
     /* caption */
     color: var(--Main-color, #3885F8);
 }
